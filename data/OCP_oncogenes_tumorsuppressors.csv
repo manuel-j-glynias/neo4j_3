@@ -1,0 +1,172 @@
+Gene,GeneType,AmpliconType
+ABL1,Oncogene,Fusion
+ABL1,Oncogene,Hotspot
+ACVRL1,Oncogene,CNV
+AKT1,Oncogene,CNV
+AKT1,Oncogene,Hotspot
+AKT3,Oncogene,Fusion
+ALK,Oncogene,Fusion
+ALK,Oncogene,Hotspot
+APC,Tumor Suppressor Gene,CDS
+APEX1,Oncogene,CNV
+AR,Oncogene,CNV
+AR,Oncogene,Hotspot
+ARAF,Oncogene,Hotspot
+ATM,Tumor Suppressor Gene,CDS
+ATP11B,Oncogene,CNV
+AXL,Oncogene,Fusion
+BAP1,Tumor Suppressor Gene,CDS
+BCL2L1,Oncogene,CNV
+BCL9,Oncogene,CNV
+BIRC2,Oncogene,CNV
+BIRC3,Oncogene,CNV
+BRAF,Oncogene,Fusion
+BRAF,Oncogene,Hotspot
+BRCA1,Tumor Suppressor Gene,CDS
+BRCA2,Tumor Suppressor Gene,CDS
+BTK,Oncogene,Hotspot
+CBL,Oncogene,Hotspot
+CCND1,Oncogene,CNV
+CCNE1,Oncogene,CNV
+CD274,Oncogene,CNV
+CD44,Oncogene,CNV
+CDH1,Tumor Suppressor Gene,CDS
+CDK4,Oncogene,CNV
+CDK4,Oncogene,Hotspot
+CDK6,Oncogene,CNV
+CDKN2A,Tumor Suppressor Gene,CDS
+CHEK2,Oncogene,Hotspot
+CSF1R,Oncogene,Hotspot
+CSNK2A1,Oncogene,CNV
+CTNNB1,Oncogene,Hotspot
+DCUN1D1,Oncogene,CNV
+DDR2,Oncogene,Hotspot
+DNMT3A,Oncogene,Hotspot
+EGFR,Oncogene,CNV
+EGFR,Oncogene,Fusion
+EGFR,Oncogene,Hotspot
+ERBB2,Oncogene,CNV
+ERBB2,Oncogene,Fusion
+ERBB2,Oncogene,Hotspot
+ERBB3,Oncogene,Hotspot
+ERBB4,Oncogene,Hotspot
+ERG,Oncogene,Fusion
+ESR1,Oncogene,Hotspot
+ETV1,Oncogene,Fusion
+ETV4,Oncogene,Fusion
+ETV5,Oncogene,Fusion
+EZH2,Oncogene,Hotspot
+FBXW7,Tumor Suppressor Gene,CDS
+FGFR1,Oncogene,CNV
+FGFR1,Oncogene,Fusion
+FGFR1,Oncogene,Hotspot
+FGFR2,Oncogene,CNV
+FGFR2,Oncogene,Fusion
+FGFR2,Oncogene,Hotspot
+FGFR3,Oncogene,CNV
+FGFR3,Oncogene,Fusion
+FGFR3,Oncogene,Hotspot
+FGFR4,Oncogene,CNV
+FLT3,Oncogene,CNV
+FLT3,Oncogene,Hotspot
+FOXL2,Oncogene,Hotspot
+GAS6,Oncogene,CNV
+GATA2,Oncogene,Hotspot
+GATA3,Tumor Suppressor Gene,CDS
+GNA11,Oncogene,Hotspot
+GNAQ,Oncogene,Hotspot
+GNAS,Oncogene,Hotspot
+HNF1A,Oncogene,Hotspot
+HRAS,Oncogene,Hotspot
+IDH1,Oncogene,Hotspot
+IDH2,Oncogene,Hotspot
+IFITM1,Oncogene,Hotspot
+IFITM3,Oncogene,Hotspot
+IGF1R,Oncogene,CNV
+IL6,Oncogene,CNV
+JAK1,Oncogene,Hotspot
+JAK2,Oncogene,Hotspot
+JAK3,Oncogene,Hotspot
+KDR,Oncogene,Hotspot
+KIT,Oncogene,CNV
+KIT,Oncogene,Hotspot
+KNSTRN,Oncogene,Hotspot
+KRAS,Oncogene,CNV
+KRAS,Oncogene,Hotspot
+MAGOH,Oncogene,Hotspot
+MAP2K1,Oncogene,Hotspot
+MAP2K2,Oncogene,Hotspot
+MAPK1,Oncogene,Hotspot
+MAX,Oncogene,Hotspot
+MCL1,Oncogene,CNV
+MDM2,Oncogene,CNV
+MDM4,Oncogene,CNV
+MED12,Oncogene,Hotspot
+MET,Oncogene,CNV
+MET,Oncogene,Fusion
+MET,Oncogene,Hotspot
+MLH1,Tumor Suppressor Gene,Hotspot
+MPL,Oncogene,Hotspot
+MSH2,Tumor Suppressor Gene,CDS
+MTOR,Oncogene,Hotspot
+MYC,Oncogene,CNV
+MYCL,Oncogene,CNV
+MYCN,Oncogene,CNV
+MYD88,Oncogene,Hotspot
+MYO18A,Oncogene,CNV
+NF1,Tumor Suppressor Gene,CDS
+NF2,Tumor Suppressor Gene,CDS
+NFE2L2,Oncogene,Hotspot
+NKX2-1,Oncogene,CNV
+NKX2-8,Oncogene,CNV
+NOTCH1,Tumor Suppressor Gene,CDS
+NPM1,Oncogene,Hotspot
+NRAS,Oncogene,Hotspot
+NTRK1,Oncogene,Fusion
+NTRK2,Oncogene,Fusion
+NTRK3,Oncogene,Fusion
+PAX5,Oncogene,Hotspot
+PDCD1LG2,Oncogene,CNV
+PDGFRA,Oncogene,CNV
+PDGFRA,Oncogene,Fusion
+PDGFRA,Oncogene,Hotspot
+PIK3CA,Oncogene,CNV
+PIK3CA,Oncogene,Hotspot
+PIK3R1,Tumor Suppressor Gene,CDS
+PNP,Oncogene,CNV
+PPARG,Oncogene,CNV
+PPARG,Oncogene,Fusion
+PPP2R1A,Oncogene,Hotspot
+PTCH1,Tumor Suppressor Gene,CDS
+PTEN,Tumor Suppressor Gene,CDS
+PTPN11,Oncogene,Hotspot
+RAC1,Oncogene,Hotspot
+RAF1,Oncogene,Fusion
+RAF1,Oncogene,Hotspot
+RB1,Tumor Suppressor Gene,CDS
+RET,Oncogene,Fusion
+RET,Oncogene,Hotspot
+RHEB,Oncogene,Hotspot
+RHOA,Oncogene,Hotspot
+ROS1,Oncogene,Fusion
+RPS6KB1,Oncogene,CNV
+SF3B1,Oncogene,Hotspot
+SMAD4,Tumor Suppressor Gene,CDS
+SMARCB1,Tumor Suppressor Gene,CDS
+SMO,Oncogene,Hotspot
+SOX2,Oncogene,CNV
+SPOP,Oncogene,Hotspot
+SRC,Oncogene,Hotspot
+STAT3,Oncogene,Hotspot
+STK11,Tumor Suppressor Gene,CDS
+TERT,Oncogene,CNV
+TET2,Tumor Suppressor Gene,CDS
+TIAF1,Oncogene,CNV
+TP53,Tumor Suppressor Gene,CDS
+TSC1,Tumor Suppressor Gene,CDS
+TSC2,Tumor Suppressor Gene,CDS
+U2AF1,Oncogene,Hotspot
+VHL,Tumor Suppressor Gene,CDS
+WT1,Tumor Suppressor Gene,CDS
+XPO1,Oncogene,Hotspot
+ZNF217,Oncogene,CNV

@@ -1,0 +1,128 @@
+interface NamedEntity {
+  id: ID!
+  name: String!
+}
+
+type EditableStatement {
+	id: ID!
+	field:  String!
+	statement: String!
+	editor: String!
+	edit_date: String!
+	deleted: Boolean!
+}
+
+interface StatementWithEvidence {
+    id: ID!
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+}
+
+interface Reference {
+  id: ID!
+  shortReference: String!
+  statements_referenced: [StatementWithEvidence!]! @relation(name: "REFERENCE_FOR", direction: "IN")
+}
+
+type JaxReference implements Reference {
+    id: ID!
+    jaxId:  String!
+#    put the url field into shortReference
+    shortReference: String!
+    statements_referenced: [StatementWithEvidence!]!  @relation(name: "REFERENCE_FOR", direction: "IN")
+    title:  String!
+    PMID:  String
+}
+
+type JaxGene implements NamedEntity & StatementWithEvidence {
+    id: ID!
+#    name == Gene Symbox
+    name: String!
+#    statement = description
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+    entrezId: String!
+    jaxId:  String!
+    chromosome: String!
+    synonyms: [String]!
+    canonicalTranscript:[String]!
+    oncogenic_category: String!
+    variants: [JaxVariant]! @relation(name: "CODED_BY", direction: "IN")
+}
+
+type JaxVariant implements NamedEntity & StatementWithEvidence {
+    id: ID!
+    name: String!
+    #    statement = description
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+    jaxId:  String!
+    gene: JaxGene! @relation(name: "CODED_BY", direction: "OUT")
+    pDot:   String!
+    cDot:   String!
+    gDot:   String!
+    transcript: String!
+    variant_type: String!
+    proteinEffect: String!
+    molecular_profiles: [JaxMolecularProfile]! @relation(name: "PROFILE_MEMBER", direction: "IN")
+}
+
+type JaxMolecularProfile implements NamedEntity{
+    id: ID!
+    name: String!
+    jaxId:  String!
+    variants: [JaxVariant]! @relation(name: "PROFILE_MEMBER", direction: "OUT")
+    results: [JaxResult]! @relation(name: "RESULTS_PROFILE", direction: "IN")
+}
+
+type JaxDisease implements NamedEntity {
+    id: ID!
+    name: String!
+    parent: JaxDisease @relation(name: "PARENT", direction: "OUT")
+    children: [JaxDisease]! @relation(name: "PARENT", direction: "IN")
+    results: [JaxResult]! @relation(name: "RESULTS_DISEASE", direction: "IN")
+}
+
+type JaxDrugClass implements NamedEntity {
+    id: ID!
+    name: String!
+    jaxId:  String!
+    drugs: [JaxDrug]! @relation(name: "DRUG_CLASS_MEMBER", direction: "OUT")
+}
+
+type JaxDrug implements NamedEntity & StatementWithEvidence {
+    id: ID!
+    name: String!
+    tradeName: String!
+    jaxId:  String!
+    synonyms: [String]!
+    #    statement = description
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+    drugClasses: [JaxDrugClass]! @relation(name: "DRUG_CLASS_MEMBER", direction: "IN")
+    therapies: [JaxTherapy]! @relation(name: "THERAPY_MEMBER", direction: "IN")
+}
+
+type JaxTherapy implements NamedEntity{
+    id: ID!
+    name: String!
+    jaxId:  String!
+    drugs: [JaxDrug]! @relation(name: "THERAPY_MEMBER", direction: "OUT")
+    results: [JaxResult]! @relation(name: "RESULTS_THERAPY", direction: "IN")
+}
+
+type JaxResult implements NamedEntity & StatementWithEvidence {
+    id: ID!
+    name: String!
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+    approvalStatus: String!
+    approvalLevel: Int!
+    evidenceType: String!
+    responseType: String!
+    ampCapAscoEvidenceLevel: String!
+    ampCapAscoInferredTier: String!
+    therapy: JaxTherapy! @relation(name: "RESULTS_THERAPY", direction: "OUT")
+    molecular_profile: JaxMolecularProfile! @relation(name: "RESULTS_PROFILE", direction: "OUT")
+    disease: JaxDisease!  @relation(name: "RESULTS_DISEASE", direction: "OUT")
+}
