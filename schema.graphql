@@ -50,6 +50,32 @@ type JaxGene implements NamedEntity & StatementWithEvidence {
     variants: [JaxVariant]! @relation(name: "CODED_BY", direction: "IN")
 }
 
+enum Strand {
+  FORWARD
+  REVERSE
+}
+
+type MyGeneInfo_Gene implements NamedEntity & StatementWithEvidence {
+  id: ID!
+  name: String!
+  statement: String!
+  chromosome: String!
+  strand: Strand!
+  start: Int
+  end: Int
+  reference: InternetReference!  @relation(name: "REFERENCE_FOR", direction: "OUT")
+}
+
+type OmniGene implements NamedEntity  {
+    id: ID!
+    name: String!
+    geneDescription: EditableStatement!
+    oncogenicCategory: EditableStatement!
+    myGeneInfo: MyGeneInfo_Gene!
+    jaxGene:    JaxGene!
+}
+
+
 type JaxVariant implements NamedEntity & StatementWithEvidence {
     id: ID!
     name: String!

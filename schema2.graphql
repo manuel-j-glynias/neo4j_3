@@ -1,0 +1,87 @@
+interface NamedEntity {
+    id: ID!
+    name: String!
+}
+
+type EditableStatement {
+    id: ID!
+    field:  String!
+    statement: String!
+    editor: String!
+    edit_date: String!
+    deleted: Boolean!
+}
+
+interface StatementWithEvidence {
+    id: ID!
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+}
+
+interface Reference {
+    id: ID!
+    shortReference: String!
+    statements_referenced: [StatementWithEvidence!]! @relation(name: "REFERENCE_FOR", direction: "IN")
+}
+
+type InternetReference implements Reference{
+    id: ID!
+    shortReference: String!
+    statements_referenced: [StatementWithEvidence!]!  @relation(name: "REFERENCE_FOR", direction: "IN")
+    web_address: String!
+    accessed_date: String!
+}
+
+type JaxReference implements Reference {
+    id: ID!
+    jaxId:  String!
+    #    put the url field into shortReference
+    shortReference: String!
+    statements_referenced: [StatementWithEvidence!]!  @relation(name: "REFERENCE_FOR", direction: "IN")
+    title:  String!
+    PMID:  String
+}
+
+type JaxGene implements NamedEntity & StatementWithEvidence {
+    id: ID!
+    #    name == Gene Symbox
+    name: String!
+    #    statement = description
+    statement: String!
+    references: [Reference]! @relation(name: "REFERENCE_FOR", direction: "OUT")
+    entrezId: String!
+    jaxId:  String!
+    chromosome: String!
+    synonyms: [String]!
+    canonicalTranscript:[String]!
+}
+
+enum Strand {
+    FORWARD
+    REVERSE
+}
+
+type MyGeneInfo_Gene implements NamedEntity & StatementWithEvidence {
+    id: ID!
+    name: String!
+    statement: String!
+    chromosome: String!
+    strand: Strand!
+    start: Int
+    end: Int
+    synonyms: [String]!
+    references: [Reference]!  @relation(name: "REFERENCE_FOR", direction: "OUT")
+    entrezId: String!
+}
+
+type OmniGene implements NamedEntity  {
+    id: ID!
+    name: String!
+    panelName: String!
+    geneDescription: EditableStatement!
+    oncogenicCategory: EditableStatement!
+    synonymsString: EditableStatement!
+    myGeneInfoGene: MyGeneInfo_Gene!
+    jaxGene:    JaxGene
+}
+
