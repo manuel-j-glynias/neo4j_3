@@ -119,7 +119,7 @@ type OmniGene implements NamedEntity  {
     oncogenicCategory: EditableStatement!
     synonymsString: EditableStatement!
     myGeneInfoGene: MyGeneInfo_Gene!
-    uniprot_entry: Uniprot_Entry!
+    uniprot_entry: Uniprot_Entry
     jaxGene:    JaxGene
 }
 
