@@ -191,7 +191,7 @@ def extract_current_data(server:str):
 
 def write_history(history_list:list):
     csv_file = "out/history.csv"
-    csv_columns = ['gene_name', 'editor_name', 'edit_date', 'statement']
+    csv_columns = ['gene_name', 'kind', 'editor_name', 'edit_date', 'statement']
     try:
         with open(csv_file, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns, extrasaction='ignore')
@@ -201,6 +201,15 @@ def write_history(history_list:list):
     except IOError:
         print("I/O error")
 
+# 'geneDescription_omnigene_7249'
+
+def convert_field(field:str):
+    f = 'GeneDescription'
+    if 'SynonymsString' in field:
+        f = 'SynonymsString'
+    elif 'OncogenicCategory' in field:
+        f = 'OncogenicCategory'
+    return f
 
 def extract_history(server:str):
     response = get_current_data_fields(server)
@@ -209,7 +218,13 @@ def extract_history(server:str):
 
     for entry in response:
         gene_description: dict = entry['geneDescription']
+        oncogenicCategory: dict = entry['oncogenicCategory']
+        synonymsString: dict = entry['synonymsString']
         field = gene_description['field']
+        gene_dict[field] = entry['name']
+        field = oncogenicCategory['field']
+        gene_dict[field] = entry['name']
+        field = synonymsString['field']
         gene_dict[field] = entry['name']
 
     history_response = get_history(server)
@@ -217,8 +232,9 @@ def extract_history(server:str):
         field = h_item['field']
         if field in gene_dict:
             gene = gene_dict[field]
+            kind = convert_field(field)
             editor_name = h_item['editor']['name']
-            history = {'gene_name': gene, 'statement':h_item['statement'], 'editor_name':editor_name, 'edit_date': h_item['edit_date']}
+            history = {'gene_name': gene, 'kind':kind, 'statement':h_item['statement'], 'editor_name':editor_name, 'edit_date': h_item['edit_date']}
             history_list.append(history)
     write_history(history_list)
 
